@@ -19,13 +19,17 @@ import Foundation
  Make use of your test plan and algorithm to ensure your code is complete.
  
  */
-var inputToProcess : String = ""
-
+var numberOfVotes : Int? = nil
+var voteInput : String? = nil
+var areVotesValid : Bool = true
+var votesForA : Int = 0
+var votesForB : Int = 0
+var winner : [String] = ["A", "B", "Tie", "Error"]
 // Loop until valid input is received
-while inputToProcess == "" {
+while numberOfVotes == nil {
     
     // Show the prompt
-    print("Ask the question here? ", terminator: "")
+    print("How Many Votes? ", terminator: "")
     
     // Get the user's input
     var input : String?
@@ -34,15 +38,54 @@ while inputToProcess == "" {
     // Use optional binding to see if the string can be unwrapped (to see if it is not nil)
     if let notNilInput = input {
         
+        if let intInput = Int(notNilInput)
+        {
+            if intInput < 16 && intInput > 0
+            {
+                numberOfVotes = intInput
+            }
+        }
+        
         // You probably need to add additional checks to be sure the
         // input received is valid
         // Add checks as needed...
         
         // Save the input given, as we are certain it's what we are looking for now
-        inputToProcess = notNilInput
+        
+        //if
+        
         
     }
     
+}
+
+while voteInput == nil
+{
+    // Show the prompt
+    
+    // Get the user's input
+    var input : String?
+    input = readLine()
+    
+    // Use optional binding to see if the string can be unwrapped (to see if it is not nil)
+    if let notNilInput = input {
+        
+        if let stringInput = String(notNilInput)
+        {
+            voteInput = stringInput
+        }
+        
+        // You probably need to add additional checks to be sure the
+        // input received is valid
+        // Add checks as needed...
+        
+        // Save the input given, as we are certain it's what we are looking for now
+        
+        //if
+        
+        
+    }
+
 }
 
 /*
@@ -53,11 +96,40 @@ while inputToProcess == "" {
  
  Make use of your test plan and algorithm to ensure your code is complete.
  
+
+ 
  */
 
 // Add 'process' code below....
-print("replace with process logic")
 
+
+
+if let votes = voteInput
+{
+    if votes.characters.count > numberOfVotes! || votes.characters.count < numberOfVotes!
+    {
+        areVotesValid = false
+    }
+    else{
+        for i in votes.characters
+        {
+            if i == "A"
+            {
+                votesForA = votesForA + 1
+            }else if i == "B"
+            {
+                votesForB = votesForB + 1
+            }else{
+                areVotesValid = false
+            }
+        }
+    }
+}
+
+if votesForA > numberOfVotes!/2
+{
+    
+}
 
 /*
  
@@ -70,5 +142,5 @@ print("replace with process logic")
  */
 
 // Add 'output' code below... replace what is here as needed.
-print("The input given was: \(inputToProcess)")
+
 
