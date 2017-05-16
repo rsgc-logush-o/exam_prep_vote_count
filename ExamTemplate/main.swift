@@ -25,6 +25,7 @@ var areVotesValid : Bool = true
 var votesForA : Int = 0
 var votesForB : Int = 0
 var winner : [String] = ["A", "B", "Tie", "Error"]
+var voteNumber : Int = 0
 // Loop until valid input is received
 while numberOfVotes == nil {
     
@@ -128,7 +129,10 @@ if let votes = voteInput
 
 if votesForA > numberOfVotes!/2
 {
-    
+    voteNumber = 0
+}else if votesForA == numberOfVotes!/2
+{
+    voteNumber = 2
 }
 
 /*
