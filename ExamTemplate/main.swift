@@ -133,7 +133,15 @@ if votesForA > numberOfVotes!/2
 }else if votesForA == numberOfVotes!/2
 {
     voteNumber = 2
+}else if votesForA + votesForB > numberOfVotes!
+{
+    voteNumber = 3
+}else
+{
+    voteNumber = 1
 }
+
+print(winner[voteNumber])
 
 /*
  
